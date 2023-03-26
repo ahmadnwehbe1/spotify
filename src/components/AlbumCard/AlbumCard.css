@@ -1,0 +1,28 @@
+.date {
+  color: gray;
+  font-weight: bold;
+}
+.card {
+  height: 550px;
+}
+
+.date-tracks {
+  margin-top: 10px;
+}
+
+.preview {
+  width: 100%;
+  font-size: unset;
+  border-radius: unset;
+  background-color: lightgray;
+  border-width: unset;
+  outline: none;
+  cursor: pointer;
+  padding: unset;
+  position: absolute;
+  bottom: 0;
+  border: 1px solid gray;
+  color: gray;
+  font-weight: bold;
+  padding: 12px 0px;
+}

@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/Login/Login";
+import Layout from "./Layout/Layout";
+import Artists from "./pages/Artists/Artists";
+import Albums from "./pages/Albums/Albums";
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const hash = url.hash.substr(1);
+    const params = new URLSearchParams(hash);
+    const accessToken = params.get("access_token");
+
+    if (accessToken) {
+      localStorage.setItem("accessToken", accessToken);
+      const newUrl = `${url.origin}${url.pathname}${url.search}`;
+      window.location.replace(newUrl);
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            exact
+            element={
+              <Layout>
+                <Artists />
+              </Layout>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <Layout>
+                <Login />
+              </Layout>
+            }
+          />
+          <Route
+            path="/:id/albums"
+            element={
+              <Layout>
+                <Albums />
+              </Layout>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;

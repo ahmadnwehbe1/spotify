@@ -1,0 +1,45 @@
+button {
+  width: 100%;
+  font-size: 40px;
+  border-radius: 10px;
+  background-color: transparent;
+  border-width: 1px;
+  outline: none;
+  cursor: pointer;
+  padding: 30px 0px;
+  z-index: 1;
+}
+
+.login-btn {
+  position: relative;
+  width: 33%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .login-btn {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  button {
+    font-size: 28px;
+  }
+}
+
+.spot-img {
+  width: 60px;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 81px);
+}

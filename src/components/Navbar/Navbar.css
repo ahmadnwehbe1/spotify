@@ -1,0 +1,13 @@
+.navbar {
+  background-color: lightgrey;
+  font-size: 40px;
+  height: 40px;
+  padding: 20px 40px;
+  border-bottom: 1px solid black;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    font-size: 28px;
+  }
+}
